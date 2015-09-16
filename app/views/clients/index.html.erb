@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Clients</h1>
+
+<%= render partial: 'search_form', locals: {
+  form: form,
+  url: clients_path,
+  method: :get
+} %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Dob</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% presenter.clients.each do |client| %>
+      <tr>
+        <td><%= client.name %></td>
+        <td><%= client.dob_formatted %></td>
+        <td><%= link_to_show(client) %></td>
+        <td><%= link_to_edit(client) %></td>
+        <td><%= link_to_destroy(client) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to_new(presenter) %>

@@ -1,0 +1,10 @@
+<h1>Editing Client</h1>
+
+<%= render partial: 'form', locals: {
+  form: form,
+  url: url,
+  method: :patch
+} %>
+
+<%= link_to 'Show', @client %> |
+<%= link_to 'Back', clients_path %>
