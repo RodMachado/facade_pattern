@@ -26,6 +26,7 @@ describe ClientSaveBusiness do
       expect(client).to receive(:name=).with('Foo')
       expect(client).to receive(:city=).with('Bar')
       expect(client).to receive(:save!)
+
       subject.save!
     end
   end

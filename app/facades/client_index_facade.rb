@@ -15,7 +15,7 @@ class ClientIndexFacade < DefaultFacade
   def query
     @query ||= ClientQuery.new(
       form: form
-    ).all
+    )
   end
 
 end

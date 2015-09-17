@@ -1,3 +1,4 @@
+require 'active_support/core_ext/module/delegation'
 require 'app/presenters/client_presenter'
 
 describe ClientPresenter do
@@ -10,6 +11,7 @@ describe ClientPresenter do
   describe '#id' do
     it 'is delegated to client' do
       expect(client).to receive(:id)
+
       subject.id
     end
   end
@@ -17,6 +19,7 @@ describe ClientPresenter do
   describe '#name' do
     it 'is delegated to client' do
       expect(client).to receive(:name)
+
       subject.name
     end
   end
@@ -24,6 +27,7 @@ describe ClientPresenter do
   describe '#city' do
     it 'is delegated to client' do
       expect(client).to receive(:city)
+
       subject.city
     end
   end
@@ -31,6 +35,7 @@ describe ClientPresenter do
   describe '#to_param' do
     it 'is delegated to client' do
       expect(client).to receive(:to_param)
+
       subject.to_param
     end
   end
@@ -38,6 +43,7 @@ describe ClientPresenter do
   describe '#to_model' do
     it 'is delegated to client' do
       expect(client).to receive(:to_model)
+
       subject.to_model
     end
   end

@@ -5,11 +5,15 @@ class ClientListPresenter
   end
 
   def clients
-    query.collect { |client| ClientPresenter.new(client: client) }
+    all_clients.collect { |client| ClientPresenter.new(client: client) }
   end
 
   private
 
   attr_reader :query
+
+  def all_clients
+    query.all
+  end
 
 end

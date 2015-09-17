@@ -18,6 +18,11 @@ class ClientUpdateFacade < DefaultFacade
 
   private
 
+  delegate(
+    :valid?,
+    to: :form
+  )
+
   def client_form_params
     params[:client_form] || client.attributes
   end

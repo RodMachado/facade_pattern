@@ -12,17 +12,16 @@ class ClientCreateFacade < DefaultFacade
     ).save!
   end
 
+  def client
+    Client.new
+  end
+
   private
 
   delegate(
     :valid?,
-    :errors,
     to: :form
   )
-
-  def client
-    Client.new
-  end
 
   def client_form_params
     params[:client_form] || {}

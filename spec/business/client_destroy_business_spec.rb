@@ -5,9 +5,7 @@ describe ClientDestroyBusiness do
   let(:client) { instance_double('Client') }
 
   let(:options) do
-    {
-      client: client
-    }
+    { client: client }
   end
 
   subject { ClientDestroyBusiness.new(options) }
@@ -15,6 +13,7 @@ describe ClientDestroyBusiness do
   describe '#destroy!' do
     it 'destroys client' do
       expect(client).to receive(:destroy!)
+
       subject.destroy!
     end
   end
