@@ -1,9 +1,10 @@
-<h1>New Client</h1>
-
-<%= render partial: 'form', locals: {
-  form: form,
-  url: url,
-  method: :post
-} %>
-
-<%= link_to 'Back', clients_path %>
+<div class='row'>
+  <div class='col-md-12 page-header'>
+    <h2><%= t('clients.clients') %></h2>
+  </div>
+  <%= render partial: 'form', locals: {
+    form: form,
+    url: url,
+    method: :post
+  } %>
+</div>

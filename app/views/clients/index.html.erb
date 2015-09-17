@@ -1,35 +1,37 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Clients</h1>
-
-<%= render partial: 'search_form', locals: {
-  form: form,
-  url: clients_path,
-  method: :get
-} %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Dob</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% presenter.clients.each do |client| %>
-      <tr>
-        <td><%= client.name %></td>
-        <td><%= client.dob_formatted %></td>
-        <td><%= link_to_show(client) %></td>
-        <td><%= link_to_edit(client) %></td>
-        <td><%= link_to_destroy(client) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class='row'>
+  <div class='col-md-12 page-header'>
+    <h2><%= t('.clients') %></h2>
+  </div>
+  <%= render partial: 'shared/notice', locals: { notice: notice } %>
+  <div class='col-md-9'>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t('.name') %></th>
+          <th><%= t('.city') %></th>
+          <th colspan='3' class='action_column'><%= t('.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% presenter.clients.each do |client| %>
+          <tr>
+            <td><%= client.name %></td>
+            <td><%= client.city %></td>
+            <td><%= link_to_show(client) %></td>
+            <td><%= link_to_edit(client) %></td>
+            <td><%= link_to_destroy(client) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class='col-md-3 well'>
+    <%= render partial: 'search_form', locals: {
+      form: form,
+      url: clients_path,
+      method: :get
+    } %>
+  </div>
+</div>
 
 <%= link_to_new(presenter) %>

@@ -1,0 +1,15 @@
+th.action_column {
+  width: 100px;
+}
+
+.field_with_errors {
+  display: inline;
+
+  label {
+    color: #a94442;
+  }
+
+  input {
+    border-color: #a94442;
+  }
+}

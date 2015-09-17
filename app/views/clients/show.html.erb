@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class='row'>
+  <div class='col-md-12 page-header'>
+    <h2><%= t('clients.clients') %></h2>
+  </div>
+  <%= render partial: 'shared/notice', locals: { notice: notice } %>
+  <div class='col-md-8'>
+    <p>
+      <strong><%= t('client.name') %>:</strong>
+      <%= presenter.name %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= presenter.name %>
-</p>
+    <p>
+      <strong><%= t('client.city') %>:</strong>
+      <%= presenter.city %>
+    </p>
+    <%= link_to t('defaults.edit'), edit_client_path(presenter), class: 'btn btn-default' %>
+    <%= link_to t('defaults.back'), clients_path, class: 'btn btn-default' %>
+  </div>
+</div>
 
-<p>
-  <strong>Dob:</strong>
-  <%= presenter.dob_formatted %>
-</p>
-
-<%= link_to 'Edit', edit_client_path(presenter) %> |
-<%= link_to 'Back', clients_path %>

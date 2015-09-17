@@ -1,6 +1,6 @@
 class ClientSearchForm < Form
 
   attribute :name, String
-  attribute :dob, Date
+  attribute :city, String
 
 end

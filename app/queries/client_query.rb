@@ -14,14 +14,15 @@ class ClientQuery
 
   delegate(
     :name,
-    :dob,
+    :city,
     to: :form
   )
 
   def query
-    query = User
-    query = query.where(name: name) unless name.blank?
-    query = query.where(dob: dob) unless dob.blank?
+    query = Client.order('name ASC')
+    query = query.where('name LIKE ?', "%#{name}%") unless name.blank?
+    query = query.where('city LIKE ?', "%#{city}%") unless city.blank?
     query
   end
+
 end

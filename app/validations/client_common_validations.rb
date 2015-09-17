@@ -4,7 +4,7 @@ module ClientCommonValidations
 
   included do
     validates :name, presence: true
-    validates :dob, presence: true
+    validates :city, presence: true
   end
 
 end

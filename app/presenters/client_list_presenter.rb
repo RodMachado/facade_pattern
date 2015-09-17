@@ -5,7 +5,7 @@ class ClientListPresenter
   end
 
   def clients
-    query.all.map { |client| ClientPresenter.new(client: client) }
+    query.collect { |client| ClientPresenter.new(client: client) }
   end
 
   private

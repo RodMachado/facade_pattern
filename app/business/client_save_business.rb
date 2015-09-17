@@ -7,7 +7,7 @@ class ClientSaveBusiness
 
   def save!
     client.name = name
-    client.dob = dob
+    client.city = city
     client.save!
   end
 
@@ -17,7 +17,7 @@ class ClientSaveBusiness
 
   delegate(
     :name,
-    :dob,
+    :city,
     to: :form
   )
 

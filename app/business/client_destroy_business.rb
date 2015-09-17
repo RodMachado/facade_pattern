@@ -4,11 +4,13 @@ class ClientDestroyBusiness
     @client = options.fetch(:client)
   end
 
-  def destroy!
-    client.destroy!
-  end
+  delegate(
+    :destroy!,
+    to: :client
+  )
 
   private
 
   attr_reader :client
+
 end

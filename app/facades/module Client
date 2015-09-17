@@ -1,0 +1,29 @@
+module Client
+  module Index
+    class Facade < Facade::Base
+      serializer ClientSerializer
+    end
+
+    class Form
+    end
+
+    class Presenter
+    end
+
+    class Policy
+    end
+
+    class Serializer < ClientSerializer
+    end
+  end
+end
+
+class Facade::Base
+  def form
+    @form ||= Form.new(params)
+  end
+
+  def presenter
+    @presenter ||= Presenter.new(params)
+  end
+end

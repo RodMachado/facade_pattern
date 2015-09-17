@@ -10,4 +10,5 @@ class ApplicationController < ActionController::Base
       params: params
     }
   end
+
 end

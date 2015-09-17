@@ -30,7 +30,8 @@ class ClientsController < ApplicationController
       redirect_to clients_path, notice: 'Client was successfully created.'
     else
       render :new, locals: {
-        form: @facade.form
+        form: @facade.form,
+        url: clients_path
       }
     end
   end

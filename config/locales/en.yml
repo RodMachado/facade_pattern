@@ -20,4 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  defaults:
+    new: 'New %{resource}'
+    show: 'Show'
+    send: 'Send'
+    search: 'Search'
+  clients:
+    clients: 'Clients'
+    index:
+      name: 'Name'
+      city: 'City'
