@@ -1,4 +1,5 @@
 [![Build Status](https://semaphoreci.com/api/v1/projects/a96a026b-fbd2-4dd4-911e-37804816ecf4/544780/shields_badge.svg)](https://semaphoreci.com/rodmac98/facade_pattern)
+[![Code Climate](https://codeclimate.com/github/RodMachado/facade_pattern/badges/gpa.svg)](https://codeclimate.com/github/RodMachado/facade_pattern)
 
 Facade Pattern
 
