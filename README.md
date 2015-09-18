@@ -1,4 +1,5 @@
 [![Build Status](https://semaphoreci.com/api/v1/projects/a96a026b-fbd2-4dd4-911e-37804816ecf4/544780/badge.svg)](https://semaphoreci.com/rodmac98/facade_pattern)
+
 Facade Pattern
 
 This is a proof of concept of the use of a Facade Pattern as a solution to
