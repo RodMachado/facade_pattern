@@ -25,6 +25,10 @@ en:
     show: 'Show'
     send: 'Send'
     search: 'Search'
+    notices:
+      created: '%{resource} was successfully created.'
+      updated: '%{resource} was successfully updated.'
+      destroyed: '%{resource} was successfully destroyed.'
   clients:
     clients: 'Clients'
     index:
