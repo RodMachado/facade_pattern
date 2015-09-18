@@ -18,5 +18,8 @@ Some objectives of this exercise are:
 - Better test coverage
 - Make a better separation between model-domain-presentation layers
 
+We could avoid some repetition of code using meta-programming, but for this example
+I chose to keep things more obvious.
+
 This is a work in progress. Feel free to add suggestions.
 
