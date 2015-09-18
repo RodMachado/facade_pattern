@@ -15,7 +15,7 @@ responsabilities inside the domain layer.
 Some objectives of this exercise are:
 - Instantiate only one object in controller actions (https://robots.thoughtbot.com/sandi-metz-rules-for-developers)
 - Avoid creating a 'GOD' object
-- Facilitade the writing of tests
+- Better test coverage
 - Make a better separation between model-domain-presentation layers
 
 This is a work in progress. Feel free to add suggestions.
