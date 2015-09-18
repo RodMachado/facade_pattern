@@ -2,8 +2,10 @@ require 'facade_helper'
 require 'app/facades/client_destroy_facade'
 
 describe ClientDestroyFacade do
-
   let(:client_instance) { double(:client_instance) }
+  let(:client_destroy_business_instance) do
+    double(:client_destroy_business_instance)
+  end
 
   let(:params) do
     {
@@ -35,7 +37,14 @@ describe ClientDestroyFacade do
   end
 
   describe '#destroy!' do
+    it 'destroys client' do
+      expect(ClientDestroyBusiness)
+        .to receive(:new)
+        .with(client: client_instance)
+      expect(client_destroy_business_instance).to receive(:destroy!)
 
+      subject.destroy!
+    end
   end
 
   def mock_client
@@ -56,6 +65,12 @@ describe ClientDestroyFacade do
   end
 
   def mock_client_destroy_business
-
+    stub_const(
+      'ClientDestroyBusiness',
+      double(
+        'ClientDestroyBusiness',
+        new: client_destroy_business_instance
+      )
+    )
   end
 end
