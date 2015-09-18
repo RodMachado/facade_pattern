@@ -137,7 +137,7 @@ describe ClientsController do
         expect(assigns(:facade)).to be_an_instance_of(ClientUpdateFacade)
       end
 
-      it 'renders the new template' do
+      it 'renders the edit template' do
         put(
           :update,
           id: client.id,
@@ -149,20 +149,40 @@ describe ClientsController do
   end
 
   describe 'DELETE destroy' do
-    before do
-      allow_any_instance_of(ClientDestroyFacade)
-        .to receive(:destroy!)
-        .and_return(true)
+    context 'when deletable' do
+      before do
+        allow_any_instance_of(ClientDestroyFacade)
+          .to receive(:destroy!)
+          .and_return(true)
+      end
+
+      it 'assigns @facade' do
+        delete :destroy, id: client.id
+        expect(assigns(:facade)).to be_an_instance_of(ClientDestroyFacade)
+      end
+
+      it 'redirects to index' do
+        delete :destroy, id: client.id
+        expect(response).to redirect_to(clients_path)
+      end
     end
 
-    it 'assigns @facade' do
-      delete :destroy, id: client.id
-      expect(assigns(:facade)).to be_an_instance_of(ClientDestroyFacade)
-    end
+    context 'when not deletable' do
+      before do
+        allow_any_instance_of(ClientDestroyFacade)
+          .to receive(:destroy!)
+          .and_return(false)
+      end
 
-    it 'redirects to index' do
-      delete :destroy, id: client.id
-      expect(response).to redirect_to(clients_path)
+      it 'assigns @facade' do
+        delete :destroy, id: client.id
+        expect(assigns(:facade)).to be_an_instance_of(ClientDestroyFacade)
+      end
+
+      it 'renders the show template' do
+        delete :destroy, id: client.id
+        expect(response).to render_template('show')
+      end
     end
   end
 end
