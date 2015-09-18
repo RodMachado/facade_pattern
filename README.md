@@ -6,8 +6,8 @@ Facade Pattern
 [![Test Coverage](https://codeclimate.com/github/RodMachado/facade_pattern/badges/coverage.svg)](https://codeclimate.com/github/RodMachado/facade_pattern/coverage)
 
 This is a proof of concept of the use of a Facade Pattern as a solution to
-ever growing problem of too many object instantiations in controllers of
-larger rails applications.
+the ever growing problem of too many object instantiations in larger rails
+application controllers.
 
 It is also an exercise on the use of other service objects to better identify
 responsabilities inside the domain layer.
