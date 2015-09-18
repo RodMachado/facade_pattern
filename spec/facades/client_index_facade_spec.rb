@@ -2,6 +2,7 @@ require 'facade_helper'
 require 'app/facades/client_index_facade'
 
 describe ClientIndexFacade do
+  let(:query_instance) { double(:query_instance) }
   let(:client_search_form) do
     {
       name: 'Foo',
@@ -24,8 +25,19 @@ describe ClientIndexFacade do
   end
 
   before do
+    mock_client_list_presenter
     mock_client_search_form
     mock_client_query
+  end
+
+  describe '#presenter' do
+    it 'instantiates presenter object' do
+      expect(ClientListPresenter)
+        .to receive(:new)
+        .with(query: query_instance)
+
+      subject.presenter
+    end
   end
 
   describe '#form' do
@@ -53,11 +65,26 @@ describe ClientIndexFacade do
   def mock_client_search_form
     stub_const(
       'ClientSearchForm',
-      double('ClientSearchForm', new: double)
+      double(
+        'ClientSearchForm',
+        new: query_instance
+      )
     )
   end
 
   def mock_client_query
-    stub_const('ClientQuery', double('ClientQuery'))
+    stub_const('ClientQuery',
+      double(
+        'ClientQuery',
+        new: query_instance
+      )
+    )
+  end
+
+  def mock_client_list_presenter
+    stub_const(
+      'ClientListPresenter',
+      double('ClientListPresenter', new: double)
+    )
   end
 end
