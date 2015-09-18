@@ -1,5 +1,5 @@
 module ClientsHelper
-  def link_to_new(presenter)
+  def link_to_new
     link_to(
       t('defaults.new', resource: 'Client'),
       new_client_path,
@@ -14,7 +14,9 @@ module ClientsHelper
   end
 
   def link_to_edit(client)
-    link_to(edit_client_path(client)) do
+    link_to(
+      edit_client_path(client.to_model)
+    ) do
       '<i class="fa fa-pencil-square-o"></i>'.html_safe
     end
   end
