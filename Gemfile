@@ -25,3 +25,5 @@ group :development do
   gem 'spring', '1.3.6'
   gem 'web-console', '~> 2.0'
 end
+
+gem "codeclimate-test-reporter", group: :test, require: nil
