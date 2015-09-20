@@ -34,7 +34,7 @@ describe ClientQuery do
   end
 
   subject do
-    ClientQuery.new(form: form)
+    ClientQuery.new(form: form, params: {})
   end
 
   describe '#all' do

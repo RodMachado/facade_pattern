@@ -4,7 +4,8 @@ class ClientsController < ApplicationController
     @facade = ClientIndexFacade.new(default_params)
     render :index, locals: {
       presenter: @facade.presenter,
-      form: @facade.form
+      form: @facade.form,
+      clients: @facade.clients
     }
   end
 

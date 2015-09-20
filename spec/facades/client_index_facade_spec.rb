@@ -2,7 +2,10 @@ require 'facade_helper'
 require 'app/facades/client_index_facade'
 
 describe ClientIndexFacade do
-  let(:query_instance) { double(:query_instance) }
+  let(:clients) { double :clients }
+  let(:query_instance) do
+    double(:query_instance, all: clients)
+  end
   let(:client_search_form) do
     {
       name: 'Foo',
@@ -34,7 +37,7 @@ describe ClientIndexFacade do
     it 'instantiates presenter object' do
       expect(ClientListPresenter)
         .to receive(:new)
-        .with(query: query_instance)
+        .with(clients: clients)
 
       subject.presenter
     end
@@ -50,15 +53,16 @@ describe ClientIndexFacade do
     end
   end
 
-  describe '#query' do
+  describe '#clients' do
     it 'instantiates query object' do
       expect(ClientQuery)
         .to receive(:new)
         .with(
-          form: subject.form
+          form: subject.form,
+          params: params
         )
-
-      subject.query
+      expect(query_instance).to receive(:all)
+      subject.clients
     end
   end
 

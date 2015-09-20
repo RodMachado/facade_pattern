@@ -5,29 +5,24 @@ require 'app/presenters/client_list_presenter'
 describe ClientListPresenter do
   let(:client_a) { double(:client_a) }
   let(:client_b) { double(:client_b) }
-  let(:query) do
-    double(
-      :query,
-      all: [client_a, client_b]
-    )
-  end
+  let(:clients) { [client_a, client_b] }
 
   let(:options) do
     {
-      query: query
+      clients: clients
     }
   end
 
   subject { ClientListPresenter.new(options) }
 
-  describe '#clients' do
+  describe '#list' do
     it 'returns list of client presenters' do
       class_double('ClientPresenter')
 
       expect(ClientPresenter).to receive(:new).with(client: client_a)
       expect(ClientPresenter).to receive(:new).with(client: client_b)
 
-      subject.clients
+      subject.list
     end
   end
 end

@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <% presenter.clients.each do |client| %>
+        <% presenter.list.each do |client| %>
           <tr>
             <td><%= client.name %></td>
             <td><%= client.city %></td>
@@ -24,6 +24,7 @@
         <% end %>
       </tbody>
     </table>
+    <%= paginate clients %>
   </div>
   <div class='col-md-3 well'>
     <%= render partial: 'search_form', locals: {

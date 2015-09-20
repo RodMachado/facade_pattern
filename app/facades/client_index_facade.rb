@@ -2,7 +2,7 @@ class ClientIndexFacade < DefaultFacade
 
   def presenter
     @presenter ||= ClientListPresenter.new(
-      query: query
+      clients: clients
     )
   end
 
@@ -12,10 +12,11 @@ class ClientIndexFacade < DefaultFacade
     )
   end
 
-  def query
-    @query ||= ClientQuery.new(
-      form: form
-    )
+  def clients
+    @clients ||= ClientQuery.new(
+      form: form,
+      params: params
+    ).all
   end
 
 end

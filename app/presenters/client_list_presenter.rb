@@ -1,19 +1,15 @@
 class ClientListPresenter
 
   def initialize(options)
-    @query = options.fetch(:query)
+    @clients = options.fetch(:clients)
   end
 
-  def clients
-    all_clients.collect { |client| ClientPresenter.new(client: client) }
+  def list
+    clients.collect { |client| ClientPresenter.new(client: client) }
   end
 
   private
 
-  attr_reader :query
-
-  def all_clients
-    query.all
-  end
+  attr_reader :clients
 
 end

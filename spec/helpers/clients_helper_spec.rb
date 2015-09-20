@@ -8,6 +8,7 @@ describe ClientsHelper do
   let(:client_presenter) do
     double(
       :client_presenter,
+      id: 1,
       to_model: client
     )
   end
@@ -43,8 +44,8 @@ describe ClientsHelper do
     it 'returns link to destroy client' do
       expect(helper.link_to_destroy(client_presenter))
         .to eq(
-          '<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" ' \
-          'href="/clients/1"><i class="fa fa-trash"></i></a>'
+          '<a id="destroy_client_1" data-confirm="Are you sure?" rel="nofollow" ' \
+          'data-method="delete" href="/clients/1"><i class="fa fa-trash"></i></a>'
         )
     end
   end

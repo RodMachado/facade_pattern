@@ -25,6 +25,7 @@ module ClientsHelper
     link_to(
       client,
       method: :delete,
+      id: "destroy_client_#{client.id}",
       data: { confirm: 'Are you sure?' }
     ) do
       '<i class="fa fa-trash"></i>'.html_safe
